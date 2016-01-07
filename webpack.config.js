@@ -36,7 +36,7 @@ module.exports = {
 
   // Config for our build files
   output: {
-    path: root('dist'),
+    path: root('build/public'),
     filename: '[name].bundle.js',
     sourceMapFilename: '[name].map',
     chunkFilename: '[id].chunk.js'
@@ -81,7 +81,7 @@ module.exports = {
   plugins: [
     new CommonsChunkPlugin({ name: 'vendor', filename: 'vendor.bundle.js', minChunks: Infinity }),
     // static assets
-    new CopyWebpackPlugin([ { from: 'src/assets', to: 'assets' } ]),
+    new CopyWebpackPlugin([ { from: 'src/assets', to: '/' } ]),
     // generating html
     new HtmlWebpackPlugin({ template: 'src/index.html', inject: false }),
     // replace
