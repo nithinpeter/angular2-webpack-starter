@@ -4,7 +4,7 @@ import {Http} from 'angular2/http';
 
 import {Title} from './providers/title';
 import {XLarge} from './directives/x-large';
-
+require('./home.css');
 @Component({
   // The selector is what angular internally uses
   // for `document.querySelectorAll(selector)` in our index.html

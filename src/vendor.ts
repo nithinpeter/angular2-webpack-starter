@@ -27,4 +27,11 @@ import 'angular2/core';
 // RxJS
 import 'rxjs';
 
+
 // Other vendors for example jQuery, Lodash, angular2-jwt
+import './assets/js/jquery.min';
+import './assets/js/kendo.all.min';
+import './assets/js/kendo.angular2.min';
+import './assets/js/kendo.core.min';
+import './assets/js/kendo.webcomponents.min';
+

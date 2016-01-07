@@ -1,38 +1,27 @@
 /*
  * Angular 2 decorators and services
  */
-import {Component} from 'angular2/core';
+import {Component, ViewEncapsulation} from 'angular2/core';
 import {RouteConfig, Router, ROUTER_DIRECTIVES} from 'angular2/router';
 import {FORM_PROVIDERS} from 'angular2/common';
 
 import {Home} from './home/home';
+var kendo = require('../assets/js/kendo.all.min');
 
 /*
  * App Component
  * Top Level Component
  */
 @Component({
+  encapsulation: ViewEncapsulation.None,
   selector: 'app',
-  providers: [ ...FORM_PROVIDERS ],
-  directives: [ ...ROUTER_DIRECTIVES ],
+  providers: [...FORM_PROVIDERS],
+  directives: [...ROUTER_DIRECTIVES],
   pipes: [],
-  styles: [],
+  styles: [require('../assets/css/kendo.common.min.css'), require('../assets/css/kendo.default.min.css')],
   template: `
-    <header>
-      <nav>
-        <h1>Hello {{ name }}</h1>
-        <a [routerLink]=" ['Index'] ">Index</a>
-        <a [routerLink]=" ['Home'] ">Home</a>
-      </nav>
-    </header>
-
-    <main>
-      <router-outlet></router-outlet>
-    </main>
-
-    <footer>
-      WebPack Angular 2 Starter by <a [href]="url">@AngularClass</a>
-    </footer>
+    <kendo-dropdownlist [options]='dropDownListOptions' data-text-field='text' data-value-field='value' style='text-align: left;'></kendo-dropdownlist>
+    <kendo-grid [options]='gridOptions' ></kendo-grid>
   `
 })
 @RouteConfig([
@@ -43,8 +32,49 @@ import {Home} from './home/home';
 export class App {
   name = 'Angular 2 Webpack Starter';
   url = 'https://twitter.com/AngularClass';
-  constructor() {
 
+
+  colors = [
+    { text: "Black", value: 1 },
+    { text: "Orange", value: 2 },
+    { text: "Grey", value: 3 }
+  ];
+
+
+  gridOptions = {
+    dataSource: [
+      { productName: "Tea", category: "Beverages" },
+      { productName: "Coffee", category: "Beverages" },
+      { productName: "Ham", category: "Food" },
+      { productName: "Bread", category: "Food" },
+      { productName: "Tea", category: "Beverages" },
+      { productName: "Coffee", category: "Beverages" },
+      { productName: "Ham", category: "Food" },
+      { productName: "Bread", category: "Food" },
+      { productName: "Tea", category: "Beverages" },
+      { productName: "Coffee", category: "Beverages" },
+      { productName: "Ham", category: "Food" },
+      { productName: "Bread", category: "Food" }
+    ],
+    sortable: true,
+    selectable: true,
+    columns: [
+      { field: "productName", title: "Product Name", filterable: true },
+      { field: "category", title: "Category" }
+    ],
+    pageable: {
+      pageSize: 5
+    }
+  };
+
+  dropDownListOptions: {
+    dataSource: Array<Object>
+  };
+
+  constructor() {
+    this.dropDownListOptions = {
+      dataSource: this.colors
+    }
   }
 }
 
