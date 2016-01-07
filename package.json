@@ -30,8 +30,9 @@
     "test": "./node_modules/.bin/karma start",
     "ci": "npm run e2e && npm run test",
     "docs": "./node_modules/.bin/typedoc  --options typedoc.json  src/**/*.ts",
-    "start": "npm run server:dev",
-    "postinstall": "./node_modules/.bin/typings install"
+    "start": "npm run server:dev"
+    // ,
+    // "postinstall": "./node_modules/.bin/typings install"
   },
   "dependencies": {
     "angular2": "2.0.0-beta.0",
