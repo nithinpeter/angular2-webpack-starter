@@ -67,6 +67,14 @@ webpackJsonp([0],{
 	            ],
 	            pageable: {
 	                pageSize: 5
+	            },
+	            filterable: {
+	                messages: {
+	                    and: "and",
+	                    or: "or",
+	                    filter: "Apply filter",
+	                    clear: "Clear filter"
+	                }
 	            }
 	        };
 	        this.dropDownListOptions = {

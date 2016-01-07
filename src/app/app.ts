@@ -64,6 +64,14 @@ export class App {
     ],
     pageable: {
       pageSize: 5
+    },
+    filterable: {
+      messages: {
+        and: "and",
+        or: "or",
+        filter: "Apply filter",
+        clear: "Clear filter"
+      }
     }
   };
 
