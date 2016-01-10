@@ -22,6 +22,7 @@ var kendo = require('../assets/js/kendo.all.min');
   template: `
     <kendo-dropdownlist [options]='dropDownListOptions' data-text-field='text' data-value-field='value' style='text-align: left;'></kendo-dropdownlist>
     <kendo-grid [options]='gridOptions' ></kendo-grid>
+    
   `
 })
 @RouteConfig([
